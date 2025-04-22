@@ -8,7 +8,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-openai.api_key = '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'
+openai.api_key = ''
 app.secret_key = 'supersecretkey'
 
 topic_info = ""
