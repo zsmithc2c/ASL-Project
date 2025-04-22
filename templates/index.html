@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASL Tutor - Learn American Sign Language</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    <!-- Fonts & Material ripple -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
 </head>
 <body>
-    <header>
-        <h1>ASL Tutor - Learn American Sign Language</h1>
+    <!-- ── Navbar ─────────────────────────────────────────────── -->
+    <header class="navbar">
+        <h1 class="navbar-title">ASL Tutor</h1>
     </header>
+
     <main>
-        <section id="app-explanation">
+        <!-- Intro / banner -->
+        <section id="app-explanation" class="info-card">
+            <img
+                src="{{ url_for('static', filename='images/Hello_ASL.jpg') }}"
+                alt="Hands spelling HELLO in ASL"
+                class="banner"
+            />
             <h2>Welcome to ASL Tutor</h2>
-            <p>Use your hand to make ASL signs in front of the camera. Click <b>Enable Webcam</b> below and grant access to the webcam if prompted.</p>
+            <p>
+                Use your hand to make ASL signs in front of the camera. Click
+                <strong>Enable Webcam</strong> below and grant access when prompted.
+            </p>
         </section>
+
+        <!-- Learning blocks (unchanged IDs) -->
         <section id="learning-section">
-            <div id="webcam-container">
+            <div id="webcam-container" class="card">
                 <button id="webcamButton" class="mdc-button mdc-button--raised">
                     <span class="mdc-button__ripple"></span>
                     <span class="mdc-button__label">ENABLE WEBCAM</span>
                 </button>
+
                 <div id="video-wrapper">
                     <video id="webcam" autoplay playsinline></video>
                     <canvas id="output_canvas"></canvas>
-                    <p id='gesture_output' class="output"></p>
+                    <p id="gesture_output" class="output"></p>
                 </div>
             </div>
-            <div id="letter-section">
+
+            <div id="letter-section" class="card">
                 <div id="letter-container">
                     <div id="letter-image-container">
-                        <img id="letter-image" alt="ASL letter">
+                        <img id="letter-image" alt="ASL letter" />
                     </div>
                     <div id="letter-display"></div>
                 </div>
                 <button onclick="window.skipLetter()" id="skip-button">Skip Letter</button>
             </div>
-            <div id="name-signing-section" style="display: none;">
+
+            <div id="name-signing-section" class="card" style="display:none;">
                 <h3>Sign Your Name</h3>
                 <p>Current signed name: <span id="signed-name"></span></p>
-                <button onclick="window.submitSignedName()" id="submit-name-button">Submit Name</button>
+                <button onclick="window.submitSignedName()" id="submit-name-button">
+                    Submit Name
+                </button>
             </div>
-            <div id="chat-section">
+
+            <div id="chat-section" class="card">
                 <div id="chat-container"></div>
                 <div id="input-container">
-                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <input type="text" id="user-input" placeholder="Type your message..." />
                     <button onclick="window.sendMessage()" id="send-button">Send</button>
                 </div>
             </div>
         </section>
     </main>
+
     <footer>
         <p>ASL Tutor</p>
     </footer>
+
+    <!-- MediaPipe & app script -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.js" crossorigin="anonymous"></script>
     <script type="module" src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
