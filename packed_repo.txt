@@ -1,0 +1,732 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: models/**, static/**, templates/**, topic_prompts/**, app.py
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+<additional_info>
+
+</additional_info>
+
+</file_summary>
+
+<directory_structure>
+static/
+  index.css
+  script.js
+templates/
+  index.html
+topic_prompts/
+  sign_descriptions.txt
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="static/index.css">
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F7F4;
+    color: #1C2541;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #3A506B;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #3A506B;
+}
+
+#app-explanation {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#learning-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+#webcam-container, #letter-section, #chat-section, #name-signing-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin-top: 1rem;
+}
+
+#webcam, #output_canvas {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+}
+
+#output_canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#gesture_output {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#letter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#letter-image-container {
+    width: 150px;
+    height: 150px;
+    border: solid #3A506B 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin-bottom: 1rem;
+}
+
+#letter-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#letter-display {
+    font-size: 72px;
+    font-weight: bold;
+    color: #3A506B;
+}
+
+#chat-container {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px 10px 0 0;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+#input-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+button {
+    background: linear-gradient(to right, #3A506B, #5BC0BE);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+#user-input {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.user-message {
+    background-color: #5BC0BE;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+    color: #1C2541;
+    align-self: flex-start;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #3A506B;
+    color: white;
+}
+
+#name-signing-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#signed-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3A506B;
+    margin: 1rem 0;
+}
+
+#submit-name-button {
+    margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+    #learning-section {
+        flex-direction: column;
+    }
+
+    #webcam-container, #letter-section, #chat-section, #name-signing-section {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+}
+</file>
+
+<file path="static/script.js">
+import {
+  GestureRecognizer,
+  FilesetResolver,
+  DrawingUtils
+} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
+
+let gestureRecognizer;
+let runningMode = "VIDEO";
+let webcamRunning = false;
+const videoHeight = "360px";
+const videoWidth = "480px";
+
+let currentLetter = 'A';
+let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let alphabetIndex = 0;
+let detectionTimer = null;
+let lastDetectionTime = 0;
+let detectionDuration = 0;
+let isSigningName = false;
+let signedName = '';
+
+const createGestureRecognizer = async () => {
+  const vision = await FilesetResolver.forVisionTasks(
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+  );
+  gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
+    baseOptions: {
+      modelAssetPath: "/models/gesture_recognizer.task",
+      delegate: "GPU"
+    },
+    runningMode: runningMode
+  });
+};
+
+const video = document.getElementById("webcam");
+const canvasElement = document.getElementById("output_canvas");
+const canvasCtx = canvasElement.getContext("2d");
+const gestureOutput = document.getElementById("gesture_output");
+
+function hasGetUserMedia() {
+  return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+}
+
+function enableCam(event) {
+  if (!gestureRecognizer) {
+    alert("Please wait for gestureRecognizer to load");
+    return;
+  }
+
+  if (webcamRunning === true) {
+    webcamRunning = false;
+    event.target.innerText = "ENABLE WEBCAM";
+  } else {
+    webcamRunning = true;
+    event.target.innerText = "DISABLE WEBCAM";
+  }
+
+  const constraints = {
+    video: true
+  };
+
+  navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+    video.srcObject = stream;
+    video.addEventListener("loadeddata", predictWebcam);
+  });
+}
+
+let lastVideoTime = -1;
+let results = undefined;
+
+async function predictWebcam() {
+  canvasElement.style.height = videoHeight;
+  video.style.height = videoHeight;
+  canvasElement.style.width = videoWidth;
+  video.style.width = videoWidth;
+
+  if (runningMode === "IMAGE") {
+    runningMode = "VIDEO";
+    await gestureRecognizer.setOptions({ runningMode: "VIDEO" });
+  }
+  let nowInMs = Date.now();
+  if (video.currentTime !== lastVideoTime) {
+    lastVideoTime = video.currentTime;
+    results = gestureRecognizer.recognizeForVideo(video, nowInMs);
+  }
+
+  canvasCtx.save();
+  canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+  const drawingUtils = new DrawingUtils(canvasCtx);
+
+  if (results.landmarks) {
+    for (const landmarks of results.landmarks) {
+      drawingUtils.drawConnectors(
+        landmarks,
+        GestureRecognizer.HAND_CONNECTIONS,
+        {
+          color: "#00FF00",
+          lineWidth: 3
+        }
+      );
+      drawingUtils.drawLandmarks(landmarks, {
+        color: "#FF0000",
+        lineWidth: 1,
+        radius: 1
+      });
+    }
+  }
+  canvasCtx.restore();
+
+  if (results.gestures.length > 0) {
+    gestureOutput.style.display = "block";
+    gestureOutput.style.width = videoWidth;
+    const gesture = results.gestures[0][0];
+    const letter = gesture.categoryName;
+    const categoryScore = parseFloat(gesture.score * 100).toFixed(2);
+
+    let handedness = results.handednesses[0][0].displayName;
+    handedness = handedness === "Right" ? "Left" : "Right";
+
+    gestureOutput.innerText = `Detected: ${letter}\n Confidence: ${categoryScore}%\n Hand: ${handedness}`;
+
+    const now = Date.now();
+    if (lastDetectionTime === 0) {
+      lastDetectionTime = now;
+    }
+    detectionDuration = now - lastDetectionTime;
+
+    if (detectionDuration >= 3000) {
+      if (isSigningName) {
+        if (letter !== 'NONE' && letter.length === 1) {
+          updateSignedName(letter);
+        }
+        lastDetectionTime = 0;
+        detectionDuration = 0;
+      } else if (letter === currentLetter) {
+        document.getElementById("letter-display").style.color = "green";
+        if (!detectionTimer) {
+          detectionTimer = setTimeout(() => {
+            nextLetter();
+            lastDetectionTime = 0;
+            detectionDuration = 0;
+            detectionTimer = null;
+          }, 500);
+        }
+      }
+    }
+  } else {
+    gestureOutput.style.display = "none";
+    lastDetectionTime = 0;
+    detectionDuration = 0;
+    clearTimeout(detectionTimer);
+    detectionTimer = null;
+    if (!isSigningName) {
+      document.getElementById("letter-display").style.color = "black";
+    }
+  }
+
+  if (webcamRunning === true) {
+    window.requestAnimationFrame(predictWebcam);
+  }
+}
+
+function updateLetterDisplay() {
+  document.getElementById("letter-display").textContent = currentLetter;
+  document.getElementById("letter-display").style.color = "black";
+  var imageName = currentLetter.toLowerCase() + '.jpg'
+  var imagePath = '/static/images/' + imageName;
+  var letterImage = document.getElementById("letter-image");
+  var letterImageContainer = document.getElementById("letter-image-container");
+
+  var img = new Image();
+  img.onload = function() {
+    letterImage.src = imagePath;
+    letterImage.alt = "ASL letter " + currentLetter;
+    letterImage.style.display = "block";
+    letterImageContainer.style.backgroundColor = "transparent";
+  };
+  img.onerror = function() {
+    letterImage.style.display = "none";
+    letterImageContainer.style.backgroundColor = "#f0f0f0";
+  };
+  img.src = imagePath;
+}
+
+function nextLetter() {
+  let previousLetter = currentLetter;
+  alphabetIndex++;
+  if (alphabetIndex >= alphabet.length) {
+    completedAlphabet();
+    return;
+  }
+  currentLetter = alphabet[alphabetIndex];
+  updateLetterDisplay();
+  sendAutomaticMessage(`User has correctly signed the letter ${previousLetter}. Moving to the next letter: ${currentLetter}`);
+}
+
+function completedAlphabet() {
+  isSigningName = true;
+  document.getElementById("letter-section").style.display = "none";
+  document.getElementById("name-signing-section").style.display = "block";
+  sendAutomaticMessage("Congratulations! You've completed the alphabet! Now, let's try signing your name. Sign each letter and hold for 1 second to add it to your name.");
+}
+
+function updateSignedName(letter) {
+  if (letter !== 'NONE' && letter.length === 1) {
+    signedName += letter;
+    document.getElementById("signed-name").textContent = signedName;
+  }
+}
+
+function submitSignedName() {
+  sendAutomaticMessage(`User has signed their name: ${signedName}`);
+  isSigningName = false;
+  // Reset for potential future use
+  signedName = '';
+  document.getElementById("signed-name").textContent = '';
+}
+
+function skipLetter() {
+  let previousLetter = currentLetter;
+  alphabetIndex++;
+  if (alphabetIndex >= alphabet.length) {
+    completedAlphabet();
+    return;
+  }
+  currentLetter = alphabet[alphabetIndex];
+  updateLetterDisplay();
+  sendAutomaticMessage(`User has skipped the letter ${previousLetter}. Moving to the next letter: ${currentLetter}`);
+}
+
+function startChat() {
+  sendAutomaticMessage("Let's start learning sign language!");
+}
+
+function sendAutomaticMessage(message) {
+  fetch('/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      message: message,
+      currentLetter: currentLetter,
+      signedName: isSigningName ? signedName : null
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    addMessageToChat(data.response, 'bot');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+function sendMessage() {
+  const userInput = document.getElementById("user-input");
+  const message = userInput.value.trim();
+  if (message === "") return;
+  addMessageToChat(message, 'user');
+  fetch('/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      message: message,
+      currentLetter: currentLetter,
+      signedName: isSigningName ? signedName : null
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    addMessageToChat(data.response, 'bot');
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  userInput.value = "";
+}
+
+function addMessageToChat(message, sender) {
+  const chatContainer = document.getElementById("chat-container");
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender + "-message");
+  messageElement.textContent = message;
+  chatContainer.appendChild(messageElement);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Attach functions to window object
+window.enableCam = enableCam;
+window.skipLetter = skipLetter;
+window.sendMessage = sendMessage;
+window.submitSignedName = submitSignedName;
+
+// Initialize
+createGestureRecognizer();
+updateLetterDisplay();
+startChat();
+
+// Event listeners
+document.getElementById("webcamButton").addEventListener("click", enableCam);
+document.getElementById("user-input").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
+</file>
+
+<file path="templates/index.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL Tutor - Learn American Sign Language</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ASL Tutor - Learn American Sign Language</h1>
+    </header>
+    <main>
+        <section id="app-explanation">
+            <h2>Welcome to ASL Tutor</h2>
+            <p>Use your hand to make ASL signs in front of the camera. Click <b>Enable Webcam</b> below and grant access to the webcam if prompted.</p>
+        </section>
+        <section id="learning-section">
+            <div id="webcam-container">
+                <button id="webcamButton" class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">ENABLE WEBCAM</span>
+                </button>
+                <div id="video-wrapper">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="output_canvas"></canvas>
+                    <p id='gesture_output' class="output"></p>
+                </div>
+            </div>
+            <div id="letter-section">
+                <div id="letter-container">
+                    <div id="letter-image-container">
+                        <img id="letter-image" alt="ASL letter">
+                    </div>
+                    <div id="letter-display"></div>
+                </div>
+                <button onclick="window.skipLetter()" id="skip-button">Skip Letter</button>
+            </div>
+            <div id="name-signing-section" style="display: none;">
+                <h3>Sign Your Name</h3>
+                <p>Current signed name: <span id="signed-name"></span></p>
+                <button onclick="window.submitSignedName()" id="submit-name-button">Submit Name</button>
+            </div>
+            <div id="chat-section">
+                <div id="chat-container"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="Type your message...">
+                    <button onclick="window.sendMessage()" id="send-button">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>ASL Tutor</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/vision_bundle.js" crossorigin="anonymous"></script>
+    <script type="module" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+</file>
+
+<file path="topic_prompts/sign_descriptions.txt">
+From your first message, you are strictly communicating with the user. do not send any messages outside of this role. 
+
+
+You must use the entirety of the following descriptions to assist the user in creating the proper hand shape for each sign. (Descriptions courtesy of https://www.ava.me/asl/letter-a)
+
+Only provide assistance for the current sign. Do not offer assistance or explanation for any sign besides the current sign, even if the user asks for it.
+
+
+Letter A: Hold your dominant hand in a fist, palm facing outward, with the thumb sticking up to the side of the fist.
+
+Letter B: Hold your dominant hand open, palm facing outward, all four fingers standing upright and kept together while tucking your thumb into your palm.
+
+Letter C: Curve your dominant hand, palm facing sideways, just like the letter “C,” where the top four fingers held together make up the top curve while the thumb makes up the bottom curve.
+
+Letter D: Hold up your dominant hand, palm facing outward, curve your middle, ring and pinky fingers together and touch them to your thumb, while only your index finger is standing upright.
+
+Letter E: Hold up your dominant hand, palm facing outward, with your top four fingers all touching each other and tightly curved in while your thumb is also curved and tightly tucked into your palm.
+
+Letter F:  Hold up your dominant hand, palm facing outward, with your index finger and thumb touching while the other 3 fingers are standing upright and spread apart.
+
+Letter G: Hold your dominant hand in a fist, palm facing sideways with knuckles lined up vertically. Curl in your middle, ring and pinky fingers while your index finger and thumb should stick straight out parallel to each other.
+Letter H: Hold your dominant hand in a fist, palm facing inward with knuckles lined up vertically, with index and middle fingers held out together, straight and stacked horizontally.
+
+Letter I: Hold your dominant hand in a fist, palm facing outward, with only your pinky finger standing upright.
+
+Letter J: Hold your dominant hand in a fist, palm facing outward, with only your pinky finger standing upright then draw a “J” in the air with your pinky finger.
+
+Letter K: Hold up your dominant hand, palm facing outward, with index finger standing upright and middle finger standing outward creating a 90-degree angle between these two fingers, while the thumb rests at the base of the middle finger and other remaining fingers are curled in.
+
+Letter L: Hold up your dominant hand, palm facing outward, with thumb and index fingers standing upright at a 90-degree angle to each other, to resemble the letter “L,” while other fingers are curled in.
+
+Letter M: Hold your dominant hand in a fist, palm facing outward, with thumb tucked under first three fingers while resting on top of the pinky finger. The bumps of the three fingers remind us of the letter “m.”
+
+Letter N: Hold your dominant hand in a fist, palm facing outward, with thumb tucked under first two fingers then rests on top of the ring finger, with the two fingers’ bumps reminding us of the letter “n.” Signing the letter “N” is very similar to signing the letter “M.”
+
+Letter O: Curve your dominant hand, palm facing sideways, curving all fingers and touching them to the thumb, making the shape of the letter “O”.
+
+Letter P: The letter “P” is signed like the letter “K” but is held upside down. Hold down your dominant hand, palm facing inward, with index finger standing upright (pointing down) and middle finger standing inward creating a 90-degree angle between these two fingers, while the thumb rests at the base of the middle finger and other remaining fingers curled in.
+
+Letter Q: The letter “Q” is signed like the letter “G” but is held upside down. Hold your dominant hand in a fist, palm facing the ground with knuckles lined up horizontally, with middle, ring and pinky fingers curled in while index finger and thumb stick straight out parallel to each other.
+
+Letter R: Hold up your dominant hand, palm facing outward, with index and middle fingers intertwined where the middle finger wraps over the back of the index finger, while the rest of the fingers and thumb curl in.
+
+Letter S: Hold your dominant hand in a fist, palm facing outward, with your thumb tucked in front of the fingers
+
+Letter T: Hold your dominant hand in a fist, palm facing outward, with your thumb tucked in between the index and middle fingers.
+
+Letter U: Hold your dominant hand in a fist, palm facing outward, with index and middle fingers standing upright and held together.
+
+Letter V: Hold your dominant hand in a fist, palm facing outward, with index and middle fingers standing upright and spread apart, just like the letter “V.”
+
+Letter W: Hold up your dominant hand, palm facing outward, with index, middle and ring fingers standing upright and spread apart while pinky and thumb touch as the pinky finger curves in with the thumb resting on the pinky finger’s nail, just like the letter “W.”
+
+Letter X: Hold your dominant hand in a fist, palm facing sideways, with your index finger sticking out and bent into a hook.
+
+Letter Y: Hold up your dominant hand, palm facing outward, with thumb and pinky finger standing upright while the rest of the fingers curled in, just like the letter “Y.”
+
+Letter Z: Hold your dominant hand in a fist, palm facing outward, with index finger   standing upright then draw a “Z” in the air with the index finger.
+
+
+IMPORTANT. when the user has signed their name, be sure to congratulate them using their name! But until then, don't try to say their name and just speak directly to them.
+
+
+(source for the following:https://www.signingsavvy.com/blog/377/Does+it+matter+which+hand+I+sign+with?+Using+Your+Dominant+Hand+When+Signing)
+Extra information about ASL. Only supply these answers upon request:
+
+If you use your non-dominant hand instead of your dominant hand, or if you switch hand dominance while signing, deaf people will likely still understand you, but it can be a distraction and your signing may not look as smooth. You may think of it as a non-native English speaker speaking English haltingly or with a heavy accent. To maintain clarity, it is highly recommended you pick one dominant hand and consistently use it as your dominant hand.
+
+Never start fingerspelling with one hand and then switch to the other hand.
+
+If you are ambidextrous (able to use your right and left hands equally), or if you are left-handed but feel comfortable doing some activities with your right hand, and you are wondering if you should try to use your right hand as your dominant hand when signing, here are some things to think about:
+
+Are you just starting to sign or have you been signing for quite some time? If you are just beginning to sign, then you may have more flexibility to choose which hand you want to use as your dominant hand when signing. If you have been signing for some time, it may be difficult to change your dominant hand.
+
+It is really about what feels most comfortable and natural to you when signing. It is a question only you can really answer. You need to pick one dominant hand.
+
+If you feel strongly that you could equally use either hand for your dominant hand when signing, there are some advantages to using your right hand. However, these reasons should not persuade you to use your right hand if you are more comfortable with your left hand because the most important thing is that you are consistent with which hand you use as your dominant hand.
+
+Since 90 percent of people are right-handed (Price, 2009), you will see the majority of people signing with their right hand as their dominant hand. Therefore, you will see more sign models with right-hand dominance. Your signing may also look more like others if you sign with your right hand.
+
+Based on research, signers are faster to process phonologically simple signs produced by right-handed signers and faster to process complex signs with asymmetrical handshapes by same-handed signers (Watkins & Thompson, 2017).
+
+Instruct users to only use their dominant hand to do the fingerspelling. Using both hands only makes things confusing and difficult to understand. It's important to maintain consistancy with what hand people sign with.
+
+Discourage users to switch their dominant hand when learning how to sign, and espically discourage them to switch hands in the middle of fingerspelling. Users should never switch hands in the middle of fingerspelling.
+</file>
+
+</files>

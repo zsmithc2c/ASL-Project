@@ -1,0 +1,208 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F7F4;
+    color: #1C2541;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #3A506B;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #3A506B;
+}
+
+#app-explanation {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#learning-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+#webcam-container, #letter-section, #chat-section, #name-signing-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin-top: 1rem;
+}
+
+#webcam, #output_canvas {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+}
+
+#output_canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#gesture_output {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#letter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#letter-image-container {
+    width: 150px;
+    height: 150px;
+    border: solid #3A506B 3px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin-bottom: 1rem;
+}
+
+#letter-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#letter-display {
+    font-size: 72px;
+    font-weight: bold;
+    color: #3A506B;
+}
+
+#chat-container {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px 10px 0 0;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+#input-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+button {
+    background: linear-gradient(to right, #3A506B, #5BC0BE);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+#user-input {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
+.user-message {
+    background-color: #5BC0BE;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+    color: #1C2541;
+    align-self: flex-start;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #3A506B;
+    color: white;
+}
+
+#name-signing-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#signed-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3A506B;
+    margin: 1rem 0;
+}
+
+#submit-name-button {
+    margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+    #learning-section {
+        flex-direction: column;
+    }
+
+    #webcam-container, #letter-section, #chat-section, #name-signing-section {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 2rem;
+    }
+}
